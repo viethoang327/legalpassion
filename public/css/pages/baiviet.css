@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.col {
+    width: 80%;
+    /* text-align: center; */
+}
+
+.post-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.updated-at {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.post-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-picture img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-content {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.post-footer__item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.post-footer__item--img {
+    margin-right: 10px;
+}
+
+.post-footer__item--text {
+    font-size: 18px;
+}
+
+/* COMMENT SECTION */
+.post-comment {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+  
+  .post-comment h3 {
+    margin-bottom: 20px;
+  }
+  
+  .post-comment form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .post-comment textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .post-comment button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .post-comment .comments-list {
+    margin-top: 50px;
+  }
+  
+  .post-comment .comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #ccc;
+  }
+  
+  .post-comment .comment-text {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-style: italic;
+  }
+  
+  .post-comment .comment-author {
+    font-style: italic;
+    font-size: 16px;
+  }
+  .post-comment .post-reaction, .comment-reaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.post-comment .like-btn, .dislike-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  padding: 0 10px;
+}
+
+.post-comment .like-btn span, .dislike-btn span {
+  margin-left: 10px;
+}
+
+.post-comment .reply-btn {
+  background-color: lightblue;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 4px 12px;
+}
+.post-comment .comment-updated-at{
+  align-self: flex-end;
+  font-size: 12px;
+  color: gray;
+  justify-items: end;
+}
+
+
+  

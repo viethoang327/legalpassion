@@ -1,0 +1,556 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  text-rendering: optimizeSpeed;
+}
+ /* TOP BAR CSS */
+/* Add styles for the top bar */
+.top-bar {
+  height: 62px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1575d3;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Style the admin info */
+.admin-info {
+  display: flex;
+  align-items: center;
+}
+
+.admin-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.admin-name {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.admin-status {
+  font-size: 12px;
+  margin-left: 10px;
+}
+/* Style the search form */
+#search-form {
+  display: flex;
+  align-items: center;
+}
+
+/* Style the search input field */
+#search-input {
+  width: 658px;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+/* Style the search submit button */
+#search-form button[type="submit"] {
+  font-size: 14px;
+  border: none;
+  background-color: #1575d3;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Style the search submit button on hover */
+#search-form button[type="submit"]:hover {
+  background-color: #344D67;
+}
+/* Style the admin menu */
+.admin-menu {
+  display: flex;
+}
+
+.admin-menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 16px;
+}
+.admin-menu i{
+  margin-right: 16px;
+}
+.admin-menu a:hover {
+  color: #eee;
+}
+/* Style the admin info */
+.admin-info {
+  display: flex;
+  align-items: center;
+}
+
+.admin-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.admin-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.admin-status {
+  font-size: 14px;
+  margin-left: 12px;
+  
+}
+.admin-status i {
+  margin-right: 5px;
+  font-size: 11px;
+  color: green;
+  box-shadow: #333;
+}
+
+/* Style the admin menu */
+.admin-menu {
+  display: flex;
+  position: relative;
+}
+
+.admin-menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  display: block;
+}
+
+.admin-menu a:hover {
+  color: #eee;
+}
+
+.admin-menu .dropdown-btn {
+  display: block;
+  margin-right: 36px;
+  cursor: pointer;
+  background-color: #1575d3;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.admin-menu .dropdown-container {
+  display: none;
+  position: absolute;
+  top: 179%;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 100%;
+}
+.admin-menu .dropdown-container a {
+  display: block;
+  padding: 10px;
+}
+
+.admin-menu .dropdown-container a:hover {
+  background-color: #444;
+}
+
+.admin-menu .show {
+  display: block;
+}
+
+ /* SIDE BAR CSS */
+ .sidenav a {
+  text-decoration: none!important;
+  color: white!important;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+.sidenav button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.sidenav button:hover {
+  background-color: #444;
+}
+
+.sidenav button i {
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.sidenav .dropdown-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+.sidenav .dropdown-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.sidenav .dropdown-btn:hover {
+  background-color: #444;
+}
+
+.sidenav .dropdown-btn i {
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.sidenav .dropdown-btn::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+}
+
+.sidenav .dropdown-btn.active::before {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.sidenav .dropdown-container {
+  display: none;
+  background-color: #333;
+  padding-left: 10px;
+  border-left: 5px solid #666;
+  transition: max-height 0,5s;
+}
+
+.sidenav .dropdown-container a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.sidenav .dropdown-container a:hover {
+  background-color: #444;
+}
+
+/* MAIN CONTENT CSS */
+.main {
+  position: absolute;
+  top: 52px;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* MAIN TITLE */
+.main-title {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+}
+/* MAIN CONTENT */
+.main-intro {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-intro p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+/* MAIN ITEM */
+.stats-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stats-label {
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+}
+
+.stats-value {
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+}
+
+/* MAIN- NOTATION  */
+.main-notation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.entries-number {
+  font-weight: bold;
+}
+
+.main-notation-search {
+  display: flex;
+  align-items: center;
+}
+
+.main-notation-search .btn {
+  margin-right: 10px;
+}
+.sml-search{
+  padding: 3px 10px;
+
+}
+/* MAIN- TABLE */
+.main-content__table {
+  overflow-x: auto;
+}
+
+.main-content__table table {
+  width: 100%;
+}
+.table-button{
+  display: flex;
+}
+
+/* TABLE CSS */
+.main-content__table table {
+  border-collapse: collapse;
+}
+
+.main-content__table th,
+.main-content__table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.main-content__table th {
+  background-color: #f8f9fa;
+}
+
+.main-content__table tr:nth-of-type(even) {
+  background-color: #f2f2f2;
+}
+/* BUTTON - CSS */
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #257faf, #007bff);
+  color: #fff;
+  padding: 4px 16px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-image: linear-gradient(to right, #4543a0, #0069d9);
+}
+
+.btn-danger {
+  background-image: linear-gradient(to right, #dc3545, #ff4107);
+  color: #fff;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-image: linear-gradient(to right, #c82333, #e00000);
+}
+.btn-reset {
+  background-image: linear-gradient(to right, #a9dbde, #6986dd);
+  color: #fff;
+}
+.btn-reset:hover,
+.btn-reset:focus {
+  background-image: linear-gradient(to right, #b5a9de, #5f4479);
+}
+.btn-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 100px;
+}
+.btn-section .btn {
+  margin-right: 10px;
+}
+
+/* ALERT CSS */
+.alert {
+ margin-left: 10px;
+ font-size: 12px;
+ margin-top: 10px;
+}
+.alert-disappear {
+  width: 100%;
+  font-size: 14;
+  text-align: center;
+  color: #00FF00  ;
+}
+/* FORM CSS */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 52px 10px 52px;
+
+  /* width: 56.5%; */
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 22px;
+}
+
+.form-group select,
+.form-group input {
+  height: 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+  font-size: 14px;
+}
+  .form-control {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.form-control input[type="file"] {
+  width: 40px;
+  height: 18px;
+}
+.form-checkbox{
+  display: flex;
+  flex-direction: row;
+  margin: 24px 52px 10px 52px;
+}
+.form-checkbox label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 22px;
+
+}
+.form-checkbox input[type="radio"] {
+  margin:  4px 20px;
+  width: 40px;
+  height: 18px;
+}
+.form-changepassword{
+  display: flex;
+  flex-direction: row;
+  margin: 24px 52px 10px 52px;
+  color: #344D67;
+}
+.password{
+  background-color: lightgoldenrodyellow;
+}
+/* CKEDITOR CSS  */
+.ck-editor__editable_inline {
+  min-height: 250px;
+}
+/* ANIMATION AND REPOSIVE */
+@keyframes dropdown {
+  from {max-height: 0;}
+  to {max-height: 500px;}
+}
+
+.dropdown-container {
+  animation: dropdown 1s linear;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 10px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
