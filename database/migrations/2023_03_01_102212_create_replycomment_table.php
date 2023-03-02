@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('commentlinhvuc', function (Blueprint $table) {
+        Schema::create('replycomment', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('id_baivietlinhvuc');
-            $table->foreign('id_baivietlinhvuc')->references('id')->on('baivietlinhvuc')->onDelete('cascade');
-            $table->longText('noidung');
-            $table->integer('like')->default(0);
-            $table->integer('dislike')->default(0);
+            $table->unsignedBigInteger('id_comment');
+            $table->foreign('id_comment')->references('id')->on('commentlinhvuc')->onDelete('cascade');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('user')->onDelete('cascade');
+            $table->longText('noidung');
             $table->timestamps();
         });
     }
@@ -34,7 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('commentlinhvuc');
+        Schema::dropIfExists('replycomment');
     }
 };

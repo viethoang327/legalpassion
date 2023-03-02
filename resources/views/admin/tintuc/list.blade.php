@@ -46,7 +46,7 @@
               <td>{{ $tin->tieude }}
                 <p><img src="upload/tintuc/{{$tin->hinhanh}}" alt="{{$tin->hinhanh}}" width="100px"></p>
               </td>
-              <td>{{ $tin->tomtat }}</td>
+              <td>{!!$tin->tomtat!!}</td>
               <td>{{ $tin->luotxem }}</td>
               <td>
                   @if($tin->noibat == 0)

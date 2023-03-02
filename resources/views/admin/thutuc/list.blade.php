@@ -46,7 +46,7 @@
               <td>{{ $tt->tieude }}
                 <p><img src="upload/thutuc/{{$tt->hinhanh}}" alt="{{$tt->hinhanh}}" width="100px"></p>
               </td>
-              <td>{{ $tt->tomtat }}</td>
+              <td>{!!$tt->tomtat!!}</td>
               <td>{{ $tt->luotxem }}</td>
               <td>
                   @if($tt->noibat == 0)

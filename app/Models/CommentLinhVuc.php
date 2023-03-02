@@ -18,4 +18,8 @@ class CommentLinhVuc extends Model
     {
         return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
+    public function replycomment()
+    {
+        return $this->hasMany('App\Models\ReplyComment', 'id_comment', 'id');
+    }
 }

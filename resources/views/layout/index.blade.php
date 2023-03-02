@@ -13,6 +13,8 @@
     <meta property="og:image" content="https://hoang.hungba.net/img/legalpassion_slide.png" />
     <link rel="icon" type="image/x-icon" href="/img/Untitled-1.png">
     <script src="https://kit.fontawesome.com/72c4ac30ee.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     <title>Legal passion | @yield('title')</title>
     <base href="{{asset('')}}">
     @yield('CSS')
@@ -29,11 +31,11 @@
     <a id="scrollUp" href="#top" style="position: fixed; z-index: 9999;">
         <i class="fa-solid fa-chevron-up"></i>
     </a>
-    <a id="inbMess" href="https://www.facebook.com/messages/t/862447354102533" style="position: fixed; z-index: 9999;">
+    <a id="inbMess" target="_blank" href="https://www.facebook.com/messages/t/862447354102533" style="position: fixed; z-index: 9999;">
         <i class="fa-brands fa-facebook-messenger"></i>
     </a>
-    <a id="zaloMess" href="zalo://chat?token=0972465532" style="position: fixed; z-index: 9999;">
-        <i><img src="img/icons8-zalo-cute-clipart-32.png" alt="zalo"></i>
+    <a id="zaloMess" target="_blank" href="https://zalo.me/0972465532" style="position: fixed; z-index: 9999;">
+        <i><img src="img/iconzalo.png" alt="zalo" width="32px"></i>
     </a>
 
     <script>

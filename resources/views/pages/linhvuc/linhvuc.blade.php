@@ -16,14 +16,14 @@ Danh sách lĩnh vực
       <a href="/linhvuc/{{$llv->tenkhongdau}}/{{$llv->id}}">
         <div class="content-item">
           <div class="image">
-            <img src="img/legalpassion_logo.png" alt="asdasd">
+            <img src="upload/linhvuc/{{$llv->hinhanh}}" alt="asdasd">
           </div>
           <div class="post">
-            <div class="post-intro">
-              <p><i>"Lĩnh vực"</i></p>
-            </div>
             <div class="post-title">
               <h4>{{ $llv->ten }}</h4>
+            </div>
+            <div class="post-intro">
+              <p><i>{!!$llv->mota!!}</i></p>
             </div>
           </div>
         </div>

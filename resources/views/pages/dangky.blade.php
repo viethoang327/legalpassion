@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label for="hinhdaidien">Hình đại diện</label>
-                    <input type="file" class="form-control" id="hinhdaidien" name="hinhdaidien" style="height:30px">
+                    <input type="file" class="form-control" id="hinhdaidien" name="hinhdaidien" style="height:40px">
                     @if(session('loi'))
                     <span class="alert alert-danger" style="color:red">
                         {{ session('loi') }}

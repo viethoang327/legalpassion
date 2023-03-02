@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\CommentTinTuc', 'id_user', 'id');
     }
+    public function replycomment()
+    {
+        return $this->hasMany('App\Models\ReplyComment', 'id_user', 'id');
+    }
 }

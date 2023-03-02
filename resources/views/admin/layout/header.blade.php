@@ -51,7 +51,7 @@
   <div class="dropdown-container">
     <a href="{{ route('legalpassion.user.list') }}">Danh sách</a>
     <a href="{{ route('legalpassion.user.add') }}">Thêm thành viên</a>
-    <a href="{{ route('legalpassion.lienhe.list') }}">Khách hàng</a>
+    <a href="{{ route('legalpassion.lienhe.list') }}">Liên hệ</a>
   </div>
   <button class="dropdown-btn">
     <i class="fa fa-filter"></i>
@@ -109,6 +109,14 @@
   <div class="dropdown-container">
     <a href="{{ route('legalpassion.gioithieu.list') }}">Danh sách</a>
     <a href="{{ route('legalpassion.gioithieu.add') }}">Thêm bài giới thiệu</a>
+  </div>
+  <button class="dropdown-btn">
+    <i class="fa fa-user"></i>
+    <span>Khách hàng</span>
+  </button>
+  <div class="dropdown-container">
+    <a href="{{ route('legalpassion.khachhang.list') }}">Danh sách</a>
+    <a href="{{ route('legalpassion.khachhang.add') }}">Thêm khách hàng</a>
   </div>
   <button>
     <a href="{{ route('legalpassion.admin') }}">

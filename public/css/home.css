@@ -490,6 +490,7 @@ footer p{
     position: absolute;
     width: 100%;
     height: auto;
+    
     background: #000;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -595,7 +596,7 @@ footer p{
 }
 
 .title{
-    padding: 50px 20px;
+    padding: 30px 20px;
 }
 
 .title h2{
@@ -648,27 +649,24 @@ footer p{
 
 .title__categories--item{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin: 10px 20px;
     padding: 50px;
 }
-
-
-.title__categories--item i{
-    display: block;
-    background-color: #777;
-    width: 100px;
-    height: 100px;
-    color: #fff;
-    right: 20px;
-    bottom: 60px;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 50%;
-    text-decoration: none;
-    line-height: 100px;
-    font-size: xx-large;
-    margin: 0 auto;
+.field{
+    width: 23%;
+    height: auto;
+}
+.img-field{
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+/* SCALE IMG */
+.img-field:hover{
+    transform: scale(1.1);
+    transition: 0.3s all ease-in-out;
 }
 
 .title-guide{
@@ -680,8 +678,6 @@ footer p{
     text-decoration: none;
     color: #777;
 }
-
-
 
 .text-box h5{
     font-size: 18px;
@@ -738,6 +734,17 @@ footer p{
     margin: 5px;
     padding: 15px;
 }
+.customer{
+   margin-top: 50px;
+}
+.customer img{
+    min-height: 150px;
+}
+.customer img:hover{
+    transform: scale(1.1);
+    transition: 0.3s all ease-in-out;
+}
+
 
 /* reponsive */
 

@@ -10,12 +10,14 @@ use App\Models\LoaiLinhVuc;
 use App\Models\LinhVuc;
 use App\Models\BaiVietLinhVuc;
 use App\Models\CommentLinhVuc;
+use App\Models\ReplyComment;
 
 use App\Models\ThuTuc;
 use App\Models\TinTuc;
 
 use App\Models\Slide;
 use App\Models\User;
+use App\Models\KhachHang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +45,9 @@ class PageController extends Controller
         // Bai viet noi bat
         $baivietnoibat = BaiVietLinhVuc::where('noibat', 1)->limit(4)->get();
         view()->share('baivietnoibat', $baivietnoibat);
+        //Khach hang
+        $khachhang = KhachHang::all();
+        view()->share('khachhang', $khachhang);
     }
     public function home()
     {
@@ -130,6 +135,12 @@ class PageController extends Controller
         $baiviettintuc = TinTuc::find($id);
         DB::table('tintuc')->where('id', $id)->increment('luotxem');
         return view('pages.bantin.baiviet', ['baiviettintuc' => $baiviettintuc]);
+    }
+    // KHÁCH HÀNG
+    public function khachhang()
+    {
+        $danhsachkhachhang = KhachHang::paginate(5);
+        return view('pages.khachhang', ['danhsachkhachhang' => $danhsachkhachhang]);
     }
     // TÀI KHOẢN
     public function getDangnhap()

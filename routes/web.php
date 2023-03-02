@@ -7,6 +7,7 @@ use App\Http\Controllers\LoaiLinhVucController;
 use App\Http\Controllers\LinhVucController;
 use App\Http\Controllers\BaiVietLinhVucController;
 use App\Http\Controllers\CommentBaiVietController;
+use App\Http\Controllers\ReplyCommentController;
 // Thủ tục controller
 use App\Http\Controllers\ThuTucController;
 // Tin tức controller
@@ -19,6 +20,9 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\PageController;
 // Gioi thieu controller
 use App\Http\Controllers\GioiThieuController;
+// Khach hang controller
+use App\Http\Controllers\KhachHangController;
+
 
 
 
@@ -36,17 +40,19 @@ use App\Http\Controllers\GioiThieuController;
 // HOME ROUTE
 Route::get('/', [PageController::class, 'home'])->name('legalpassion.home');
 Route::get('/gioithieu/{id}/{tieude}.html', [PageController::class, 'gioithieuchung'])->name('legalpassion.home.gioithieuchung');
-
+//LĨNH VỰC ROUTE
 Route::get('/linhvuc', [PageController::class, 'linhvuc'])->name('legalpassion.home.linhvuc');
 Route::get('/linhvuc/{tenkhongdau}/{id}', [PageController::class, 'vande'])->name('legalpassion.home.linhvuc.vande');
 Route::get('/{tenkhongdau}/{id}', [PageController::class, 'danhsachbaiviet'])->name('legalpassion.home.linhvuc.danhsachbaiviet');
 Route::get('linhvuc/baiviet/{id}/{tieude}.html', [PageController::class, 'baiviet'])->name('legalpassion.linhvuc.baiviet');
-
+// THỦ TỤC ROUTE
 Route::get('/thutuc', [PageController::class, 'thutuc'])->name('legalpassion.home.thutuc');
 Route::get('thutuc/{id}/{tieude}.html', [PageController::class, 'baivietthutuc'])->name('legalpassion.home.thutuc.baiviet');
-
+// TIN TỨC ROUTE
 Route::get('tintuc', [PageController::class, 'tintuc'])->name('legalpassion.home.tintuc');
 Route::get('tintuc/{id}/{tieude}.html', [PageController::class, 'baiviettintuc'])->name('legalpassion.home.tintuc.baiviet');
+// KHÁCH HÀNG ROUTE
+Route::get('khachhang', [PageController::class, 'khachhang'])->name('legalpassion.home.khachhang');
 // ADMIN ROUTE
 Route::get('/admin', [GioiThieuController::class, 'admin'])->name('legalpassion.admin')->middleware('adminLogin');
 
@@ -87,7 +93,14 @@ Route::prefix('admin')->middleware('adminLogin')->group(function() {
         Route::post('suacomment/{id}', [CommentBaiVietController::class, 'postEdit'])->name('legalpassion.commentbaiviet.edit');
         Route::get('xoacomment/{id}', [CommentBaiVietController::class, 'getDelete'])->name('legalpassion.commentbaiviet.delete');
     });
-    
+    Route::prefix('replycomment')->group(function(){
+        Route::get('danhsachreply', [ReplyCommentController::class, 'getList'])->name('legalpassion.replycomment.list');
+        Route::get('themreply', [ReplyCommentController::class, 'getAdd'])->name('legalpassion.replycomment.add');
+        Route::post('themreply', [ReplyCommentController::class, 'postAdd'])->name('legalpassion.replycomment.add');
+        Route::get('suareply/{id}', [ReplyCommentController::class, 'getEdit'])->name('legalpassion.replycomment.edit');
+        Route::post('suareply/{id}', [ReplyCommentController::class, 'postEdit'])->name('legalpassion.replycomment.edit');
+        Route::get('xoareply/{id}', [ReplyCommentController::class, 'getDelete'])->name('legalpassion.replycomment.delete');
+    });
     Route::prefix('ajax')->group(function() {
         Route::get('linhvuc/{id_loailinhvuc}', [AjaxController::class, 'getLinhVuc'])->name('legalpassion.ajax.linhvuc');
     });
@@ -101,14 +114,6 @@ Route::prefix('admin')->middleware('adminLogin')->group(function() {
         Route::get('xoatintuc/{id}', [TinTucController::class, 'getDelete'])->name('legalpassion.tintuc.delete');
         Route::post('timkiem', [TinTucController::class, 'postSearch'])->name('legalpassion.tintuc.search');
     });
-    Route::prefix('cmtintuc')->group(function() {
-        Route::get('danhsachcmtintuc', [CommentTinTucController::class, 'getList'])->name('legalpassion.cmtintuc.list');
-        Route::get('themcmtintuc', [CommentTinTucController::class, 'getAdd'])->name('legalpassion.cmtintuc.add');
-        Route::post('themcmtintuc', [CommentTinTucController::class, 'postAdd'])->name('legalpassion.cmtintuc.add');
-        Route::get('suacmtintuc/{id}', [CommentTinTucController::class, 'getEdit'])->name('legalpassion.cmtintuc.edit');
-        Route::post('suacmtintuc/{id}', [CommentTinTucController::class, 'postEdit'])->name('legalpassion.cmtintuc.edit');
-        Route::get('xoacmtintuc/{id}', [CommentTinTucController::class, 'getDelete'])->name('legalpassion.cmtintuc.delete');
-    });
    
     Route::prefix('thutuc')->group(function() {
         Route::get('danhsachthutuc', [ThuTucController::class, 'getList'])->name('legalpassion.thutuc.list');
@@ -119,15 +124,7 @@ Route::prefix('admin')->middleware('adminLogin')->group(function() {
         Route::get('xoathutuc/{id}', [ThuTucController::class, 'getDelete'])->name('legalpassion.thutuc.delete');
         Route::post('timkiem', [ThuTucController::class, 'postSearch'])->name('legalpassion.thutuc.search');
     });
-    Route::prefix('cmthutuc')->group(function() {
-        Route::get('danhsachcmthutuc', [CMTThuTucController::class, 'getList'])->name('legalpassion.cmthutuc.list');
-        Route::get('themcmthutuc', [CMTThuTucController::class, 'getAdd'])->name('legalpassion.cmthutuc.add');
-        Route::post('themcmthutuc', [CMTThuTucController::class, 'postAdd'])->name('legalpassion.cmthutuc.add');
-        Route::get('suacmthutuc/{id}', [CMTThuTucController::class, 'getEdit'])->name('legalpassion.cmthutuc.edit');
-        Route::post('suacmthutuc/{id}', [CMTThuTucController::class, 'postEdit'])->name('legalpassion.cmthutuc.edit');
-        Route::get('xoacmthutuc/{id}', [CMTThuTucController::class, 'getDelete'])->name('legalpassion.cmthutuc.delete');
-    });
-
+    
     Route::prefix('thanhvien')->group(function() {
         Route::get('danhsachthanhvien', [UserController::class, 'getList'])->name('legalpassion.user.list');
         Route::get('themthanhvien', [UserController::class, 'getAdd'])->name('legalpassion.user.add');
@@ -144,6 +141,15 @@ Route::prefix('admin')->middleware('adminLogin')->group(function() {
         Route::get('edit/{id}', [SlideController::class, 'getEdit'])->name('legalpassion.slide.edit');
         Route::post('edit/{id}', [SlideController::class, 'postEdit'])->name('legalpassion.slide.edit');
         Route::get('delete/{id}', [SlideController::class, 'getDelete'])->name('legalpassion.slide.delete');
+    });
+    Route::prefix('khachhang')->group(function() {
+        Route::get('danhsachkhachhang', [KhachHangController::class, 'getList'])->name('legalpassion.khachhang.list');
+        Route::get('themkhachhang', [KhachHangController::class, 'getAdd'])->name('legalpassion.khachhang.add');
+        Route::post('themkhachhang', [KhachHangController::class, 'postAdd'])->name('legalpassion.khachhang.add');
+        Route::get('suakhachhang/{id}', [KhachHangController::class, 'getEdit'])->name('legalpassion.khachhang.edit');
+        Route::post('suakhachhang/{id}', [KhachHangController::class, 'postEdit'])->name('legalpassion.khachhang.edit');
+        Route::get('xoakhachhang/{id}', [KhachHangController::class, 'getDelete'])->name('legalpassion.khachhang.delete');
+        Route::post('timkiem', [KhachHangController::class, 'postSearch'])->name('legalpassion.khachhang.search');
     });
     Route::prefix('gioithieu')->group(function(){
         Route::get('danhsachgioithieu', [GioiThieuController::class, 'getList'])->name('legalpassion.gioithieu.list');
@@ -169,6 +175,10 @@ Route::get('dangky', [PageController::class, 'getDangky'])->name('legalpassion.u
 Route::post('dangky', [PageController::class, 'postDangky'])->name('legalpassion.user.dangky');
 // COMMENT ROUTE
 Route::post('comment/{id}', [CommentBaiVietController::class, 'postComment'])->name('legalpassion.comment');
+
+// Route::get('/comment/like', [CommentBaiVietController::class, 'like'])->name('comment.like');
+// Route::get('/comment/dislike', [CommentBaiVietController::class, 'dislike'])->name('comment.dislike');
+Route::post('reply/{id}', [ReplyCommentController::class, 'postReply'])->name('legalpassion.reply');
 // SEARCH ROUTE
 Route::get('timkiem', [PageController::class, 'getSearch'])->name('legalpassion.search');
 // CONTACT ROUTE

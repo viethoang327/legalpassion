@@ -13,7 +13,7 @@
             <div class="title-guide__row">
                 @foreach ($baivietnoibat as $item)
                 <div class="title-guide__row-item">
-                    <a href="thutuc/{{$item->id}}/{{$item->tieudekhongdau}}.html">
+                    <a href="linhvuc/baiviet/{{$item->id}}/{{$item->tieudekhongdau}}.html">
                         <div class="title-guide__row--box">
                             <div class="image-box">
                                 <img src="/upload/baiviet/{{$item->hinhanh}}" alt="{{$item->hinhanh}}">

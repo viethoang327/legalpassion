@@ -28,17 +28,39 @@ class LoaiLinhVucController extends Controller
         // code to handle the POST request to the /loailinhvuc/add URL
         $this->validate($request,
         [
-            'ten' => 'required|min:3|max:100|unique:loailinhvuc,ten'
+            'ten' => 'required|min:3|max:100|unique:loailinhvuc,ten',
+            'mota' => 'required|min:3|max:255',
+            'hinhanh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ],
         [
             'ten.required' => 'Bạn chưa nhập tên lĩnh vực',
             'ten.min' => 'Tên lĩnh vực phải có độ dài từ 3 đến 100 ký tự',
             'ten.max' => 'Tên lĩnh vực phải có độ dài từ 3 đến 100 ký tự',
-            'ten.unique' => 'Tên lĩnh vực đã tồn tại'
+            'ten.unique' => 'Tên lĩnh vực đã tồn tại',
+            'mota.required' => 'Bạn chưa nhập mô tả',
+            'mota.min' => 'Mô tả phải có độ dài từ 3 đến 255 ký tự',
+            'mota.max' => 'Mô tả phải có độ dài từ 3 đến 255 ký tự',
+            'hinhanh.required' => 'Bạn chưa chọn hình ảnh',
+            'hinhanh.image' => 'File bạn chọn không phải là hình ảnh',
+            'hinhanh.mimes' => 'Hình ảnh phải có định dạng jpeg, png, jpg, gif, svg',
+            'hinhanh.max' => 'Hình ảnh không được vượt quá 2MB'
         ]);
         $loailinhvuc = new LoaiLinhVuc;
         $loailinhvuc->ten = $request->ten;
         $loailinhvuc->tenkhongdau = Str::slug($request->ten, '-');
+        $loailinhvuc->mota = $request->mota;
+        if($request->hasFile('hinhanh'))
+        {
+            $file = $request->file('hinhanh');
+            $name = $file->getClientOriginalName();
+            $hinh = $name."_".time();
+            $file->move("upload/linhvuc", $hinh);
+            $loailinhvuc->hinhanh = $hinh;
+        }
+        else
+        {
+            $loailinhvuc->hinhanh = "";
+        }
         $loailinhvuc->save();
         return redirect('admin/danhmuclinhvuc/themdanhmuc')->with('thongbao', 'Thêm thành công');
     }
@@ -56,16 +78,33 @@ class LoaiLinhVucController extends Controller
         $loailinhvuc = LoaiLinhVuc::find($id);
         $this->validate($request,
         [
-            'ten' => 'required|min:3|max:100|unique:loailinhvuc,ten'
+            'ten' => 'required|min:3|max:100|unique:loailinhvuc,ten',
+            'mota' => 'required|min:3|max:255',
+            'hinhanh' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
         ],
         [
             'ten.required' => 'Bạn chưa nhập tên lĩnh vực',
             'ten.min' => 'Tên lĩnh vực phải có độ dài từ 3 đến 100 ký tự',
             'ten.max' => 'Tên lĩnh vực phải có độ dài từ 3 đến 100 ký tự',
-            'ten.unique' => 'Tên lĩnh vực đã tồn tại'
+            'ten.unique' => 'Tên lĩnh vực đã tồn tại',
+            'mota.required' => 'Bạn chưa nhập mô tả',
+            'mota.min' => 'Mô tả phải có độ dài từ 3 đến 255 ký tự',
+            'mota.max' => 'Mô tả phải có độ dài từ 3 đến 255 ký tự',
+            'hinhanh.mimes' => 'Hình ảnh phải có định dạng jpeg, png, jpg, gif, svg',
+            'hinhanh.max' => 'Hình ảnh không được vượt quá 2MB'
         ]);
         $loailinhvuc->ten = $request->ten;
         $loailinhvuc->tenkhongdau = Str::slug($request->ten, '-');
+        $loailinhvuc->mota = $request->mota;
+        if($request->hasFile('hinhanh'))
+        {
+            unlink("upload/linhvuc/".$loailinhvuc->hinhanh);
+            $file = $request->file('hinhanh');
+            $name = $file->getClientOriginalName();
+            $hinh = $name."_".time();
+            $file->move("upload/linhvuc", $hinh);
+            $loailinhvuc->hinhanh = $hinh;
+        }
         $loailinhvuc->save();
         return redirect('admin/danhmuclinhvuc/suadanhmuc/'.$loailinhvuc->id)->with('thongbao', 'Sửa thành công');
 

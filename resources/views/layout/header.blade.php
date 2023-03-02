@@ -23,7 +23,7 @@
                     @endforeach
                 </ul>
             </li>
-            <li><a href="{{route('legalpassion.chuacapnhap')}}" class="menu">Tuyển dụng</a></li>
+            <li><a href="{{route('legalpassion.home.khachhang')}}" class="menu">Khách hàng</a></li>
             <li><a href="{{route('legalpassion.home.lienhe')}}" class="menu">Liên hệ</a></li>
         </ul>
         <div class="search">

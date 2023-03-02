@@ -32,6 +32,7 @@
             <th scope="col">STT</th>
             <th scope="col">Tên lĩnh vực</th>
             <th scope="col">Tên lĩnh vực không dấu</th>
+            <th scope="col">Mô tả</th>
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
@@ -41,8 +42,11 @@
             <?php $i++ ?>
             <tr>
               <th scope="row"><?php echo $i ?></th>
-              <td>{{ $llv->ten }}</td>
+              <td>{{ $llv->ten }}
+              <p><img src="upload/linhvuc/{{$llv->hinhanh}}" alt="{{$llv->hinhanh}}" width="100px"></p>
+              </td>
               <td>{{ $llv->tenkhongdau }}</td>
+              <td>{!!$llv->mota!!}</td>
               <td>
                 <a href="admin/danhmuclinhvuc/suadanhmuc/{{ $llv->id }}" class="btn btn-primary"><i class="fa fa-edit"></i> Sửa</a>
                 <a href="admin/danhmuclinhvuc/xoadanhmuc/{{ $llv->id }}" class="btn btn-danger"

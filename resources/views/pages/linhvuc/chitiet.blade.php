@@ -16,7 +16,7 @@ Danh sách vấn đề
       <a href="/{{$vd->tenkhongdau}}/{{$vd->id}}">
         <div class="content-item">
           <div class="image">
-            <img src="img/legalpassion_logo.png" alt="asdasd">
+            <img src="upload/linhvuc/{{$vd->loailinhvuc->hinhanh}}" alt="asdasd">
           </div>
           <div class="post">
             <div class="post-intro">
